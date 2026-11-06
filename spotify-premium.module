@@ -1,0 +1,12 @@
+#!name=Spotify Premium
+#!desc=去广告 + 解锁 Premium 状态与顺序/随机播放。改写 bootstrap 与 user-customization-service 的 protobuf（Shadowrocket 适配版，源自 xzavier-amico 的 Loon 插件）
+#!category=Spotify
+#!author=xzavier-amico
+#!homepage=https://github.com/lyc-000001/spotify-shadowrocket
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
+
+[Script]
+Spotify Premium = type=http-response,pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service),script-path=https://raw.githubusercontent.com/lyc-000001/spotify-shadowrocket/main/spotify_premium_shadowrocket.js,requires-body=true,binary-body-mode=true,max-size=4194304,timeout=30
+
+[MITM]
+hostname = *-spclient.spotify.com, *spclient.spotify.com, spclient.wg.spotify.com
